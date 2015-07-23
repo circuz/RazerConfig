@@ -1,4 +1,4 @@
-#include "/home/august/Documents/razer_blackwidow_chroma_driver-master/examples/input_example.h"
+#include "../input_example.h"
 #include <time.h>
 #include <stdlib.h>
 
