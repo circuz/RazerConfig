@@ -10,7 +10,12 @@ int running = 1;
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
 
-
+int rand_span(int span)
+{
+	double rand_dbl = ((double) rand()) / RAND_MAX - 0.5; 
+	int rand_int = (int) (rand_dbl * span);
+	return rand_int;
+}
 
 void wait_for(double secs) {
 	clock_t start_time = clock();
@@ -28,7 +33,7 @@ void effect(struct razer_chroma *chroma)
 	int count = 1;
 	int count_dir =1;
 	int x,y;
-	int rm = RAND_MAX / 10;
+	int mod = 1;
 	struct razer_rgb col;
 	struct razer_pos pos;
 	col.r = 0;
@@ -36,14 +41,29 @@ void effect(struct razer_chroma *chroma)
 	col.b = 0;
 	while(running)
 	{
-	r += rand() / rm;
-	g += rand() / rm;
-	b += rand() / rm;
-		for(x=0;x<22;x++)
+
+	r += rand_span(20);
+	if(r < 0)
+		r = 0;
+	else if(r > 255)
+		r = 255;	
+
+	g += rand_span(20);
+	if(g < 0)
+		g = 0;
+	else if(g > 255)
+		g = 255;	
+
+	b += rand_span(20);
+	if(b < 0)
+		b = 0;
+	else if(b > 255)
+		b = 255;	
+
+	for(x=0;x<22;x++)
 		{
 			for(y=0;y<6;y++)
-			{
-				
+			{	
 				
 				chroma->keys->rows[y].column[x].r = (unsigned char)r;
 				chroma->keys->rows[y].column[x].g = (unsigned char)g;
@@ -51,13 +71,17 @@ void effect(struct razer_chroma *chroma)
 				chroma->keys->update_mask |= 1<<y;
 			}
 		}
+
+		col.g -= mod;
+		col.b += mod;
+		if(g == 1)
+			mod *= -1;
+
+
 		for(int i=0;i<keys_max;i++)
 			if(keys_history[i]!=-1)
 			{
-				if(y==3 && x==4)
-				{
-				col.b = count*5;
-				}
+				
 				razer_convert_keycode_to_pos(keys_history[i],&pos);							
 				razer_set_key_pos(chroma->keys,&pos,&col);
 			}
