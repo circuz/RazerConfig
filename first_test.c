@@ -43,10 +43,7 @@ void effect(struct razer_chroma *chroma)
 	{
 
 	r += rand_span(20);
-	if(r < 0)
-		r = 0;
-	else if(r > 255)
-		r = 255;	
+	r = min(max(r, 0), 255);
 
 	g += rand_span(20);
 	if(g < 0)
