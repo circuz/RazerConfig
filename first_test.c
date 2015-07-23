@@ -49,29 +49,26 @@ void effect(struct razer_chroma *chroma)
 	col.r = 0;
 	col.g = 255;
 	col.b = 0;
-	while(running)
-	{
+	while(running){
 
-	r += rand_span(20);
-	r = fixed_range(r, 255);
+		r += rand_span(20);
+		r = fixed_range(r, 255);
 
-	g += rand_span(20);
-	g = fixed_range(b, 255);
+		g += rand_span(20);
+		g = fixed_range(b, 255);
 
-	b += rand_span(20);
-	b = fixed_range(b, 255);
+		b += rand_span(20);
+		b = fixed_range(b, 255);
 
-	for(x=0;x<22;x++)
-		{
-			for(y=0;y<6;y++)
-			{	
+		for(x=0;x<22;x++){
+				for(y=0;y<6;y++){	
 				
-				chroma->keys->rows[y].column[x].r = (unsigned char)r;
-				chroma->keys->rows[y].column[x].g = (unsigned char)g;
-				chroma->keys->rows[y].column[x].b = (unsigned char)b;
-				chroma->keys->update_mask |= 1<<y;
+					chroma->keys->rows[y].column[x].r = (unsigned char)r;
+					chroma->keys->rows[y].column[x].g = (unsigned char)g;
+					chroma->keys->rows[y].column[x].b = (unsigned char)b;
+					chroma->keys->update_mask |= 1<<y;
+				}
 			}
-		}
 
 		col.g -= mod;
 		col.b += mod;
@@ -80,16 +77,14 @@ void effect(struct razer_chroma *chroma)
 
 
 		for(int i=0;i<keys_max;i++)
-			if(keys_history[i]!=-1)
-			{
+			if(keys_history[i]!=-1){
 				
 				razer_convert_keycode_to_pos(keys_history[i],&pos);							
 				razer_set_key_pos(chroma->keys,&pos,&col);
 			}
 		razer_update_keys(chroma,chroma->keys);
 		count+=count_dir;
-		if(count<=0 || count>50)
-		{
+		if(count<=0 || count>50){
 			count_dir=-count_dir;
 		}
 		razer_update(chroma);
