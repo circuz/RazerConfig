@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define keys_max 10
+#define keys_max 20
 int keys_history_index = 0;
 int keys_history[keys_max];//ring buffer
 int running = 1;
