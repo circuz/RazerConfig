@@ -17,6 +17,16 @@ int rand_span(int span)
 	return rand_int;
 }
 
+int fixed_range(int val, int max) {
+	if(val < 0) {
+		return 0;
+	}
+	if(val > max) {
+		return max;
+	}
+	return val;
+}
+
 void wait_for(double secs) {
 	clock_t start_time = clock();
 	double sec_diff = 0;
@@ -43,19 +53,13 @@ void effect(struct razer_chroma *chroma)
 	{
 
 	r += rand_span(20);
-	r = min(max(r, 0), 255);
+	r = fixed_range(r, 255);
 
 	g += rand_span(20);
-	if(g < 0)
-		g = 0;
-	else if(g > 255)
-		g = 255;	
+	g = fixed_range(b, 255);
 
 	b += rand_span(20);
-	if(b < 0)
-		b = 0;
-	else if(b > 255)
-		b = 255;	
+	b = fixed_range(b, 255);
 
 	for(x=0;x<22;x++)
 		{
