@@ -1,6 +1,7 @@
 #include "../input_example.h"
 #include <time.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define keys_max 20
 int keys_history_index = 0;
@@ -43,7 +44,7 @@ void effect(struct razer_chroma *chroma)
 	int count = 1;
 	int count_dir =1;
 	int x,y;
-	int mod = 1;
+	double c = 0;
 	struct razer_rgb col;
 	struct razer_pos pos;
 	col.r = 0;
@@ -51,13 +52,13 @@ void effect(struct razer_chroma *chroma)
 	col.b = 0;
 	while(running){
 
-		r += rand_span(20);
+		r += rand_span(10);
 		r = fixed_range(r, 255);
 
-		g += rand_span(20);
-		g = fixed_range(b, 255);
+		g += rand_span(10);
+		g = fixed_range(g, 255);
 
-		b += rand_span(20);
+		b += rand_span(10);
 		b = fixed_range(b, 255);
 
 		for(x=0;x<22;x++){
@@ -70,18 +71,18 @@ void effect(struct razer_chroma *chroma)
 				}
 			}
 
-		col.g -= mod;
-		col.b += mod;
-		if(g == 1)
-			mod *= -1;
-
-
+		
+		col.g = (sin(c) + 1) * 127.5;
+		col.b = 255 - col.g;
+		c += 0.01;
+		
 		for(int i=0;i<keys_max;i++)
 			if(keys_history[i]!=-1){
 				
 				razer_convert_keycode_to_pos(keys_history[i],&pos);							
 				razer_set_key_pos(chroma->keys,&pos,&col);
 			}
+		
 		razer_update_keys(chroma,chroma->keys);
 		count+=count_dir;
 		if(count<=0 || count>50){
@@ -89,6 +90,7 @@ void effect(struct razer_chroma *chroma)
 		}
 		razer_update(chroma);
 		razer_frame_limiter(chroma,13);
+	
 	}
 }
 
