@@ -44,6 +44,7 @@ void effect(struct razer_chroma *chroma)
 	int count = 1;
 	int count_dir =1;
 	int x,y;
+	int span = 5;
 	double c = 0;
 	struct razer_rgb col;
 	struct razer_pos pos;
@@ -52,13 +53,14 @@ void effect(struct razer_chroma *chroma)
 	col.b = 0;
 	while(running){
 
-		r += rand_span(10);
+
+		r += rand_span(span);
 		r = fixed_range(r, 255);
 
-		g += rand_span(10);
+		g += rand_span(span);
 		g = fixed_range(g, 255);
 
-		b += rand_span(10);
+		b += rand_span(span);
 		b = fixed_range(b, 255);
 
 		for(x=0;x<22;x++){
@@ -72,9 +74,9 @@ void effect(struct razer_chroma *chroma)
 			}
 
 		
-		col.g = (sin(c) + 1) * 127.5;
+		col.g = (sin(c) + 1)/2 * 225;
 		col.b = 255 - col.g;
-		c += 0.01;
+		c += 0.05;
 		
 		for(int i=0;i<keys_max;i++)
 			if(keys_history[i]!=-1){
