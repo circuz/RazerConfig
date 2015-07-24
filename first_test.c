@@ -59,9 +59,11 @@ void effect(struct razer_chroma *chroma)
 
 		g += rand_span(span);
 		g = fixed_range(g, 255);
+		g = 0;		
 
 		b += rand_span(span);
 		b = fixed_range(b, 255);
+		b = 0;
 
 		for(x=0;x<22;x++){
 				for(y=0;y<6;y++){	
