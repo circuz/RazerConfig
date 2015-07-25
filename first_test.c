@@ -40,13 +40,14 @@ void wait_for(double secs) {
 
 void effect(struct razer_chroma *chroma)
 {
-	int r = 0, g = 0, b = 0;
+	int r = 128, g = 0, b = 0;
 	int count = 1;
 	int count_dir =1;
 	int x,y;
-	int span = 5;
+	int span = 20;
 	double c = 0;
 	struct razer_rgb col;
+	struct razer_rgb green = {.r=0,.g=255,.b=0}; //define a green color
 	struct razer_pos pos;
 	col.r = 0;
 	col.g = 255;
@@ -54,7 +55,8 @@ void effect(struct razer_chroma *chroma)
 	while(running){
 
 
-		r += rand_span(span);
+		//r += rand_span(span);
+		r = count;		
 		r = fixed_range(r, 255);
 
 		g += rand_span(span);
@@ -67,7 +69,9 @@ void effect(struct razer_chroma *chroma)
 
 		for(x=0;x<22;x++){
 				for(y=0;y<6;y++){	
-				
+					
+					g = fixed_range(r - (x * 10), 255);				
+					
 					chroma->keys->rows[y].column[x].r = (unsigned char)r;
 					chroma->keys->rows[y].column[x].g = (unsigned char)g;
 					chroma->keys->rows[y].column[x].b = (unsigned char)b;
@@ -79,6 +83,14 @@ void effect(struct razer_chroma *chroma)
 		col.g = (sin(c) + 1)/2 * 225;
 		col.b = 255 - col.g;
 		c += 0.05;
+
+		pos.x = 2;
+		pos.y = 3;
+		razer_set_key_pos(chroma->keys,&pos,&green);
+		pos.x += 1;
+		razer_set_key_pos(chroma->keys,&pos,&green);
+		pos.x += 1;
+		razer_set_key_pos(chroma->keys,&pos,&green);
 		
 		for(int i=0;i<keys_max;i++)
 			if(keys_history[i]!=-1){
@@ -86,10 +98,11 @@ void effect(struct razer_chroma *chroma)
 				razer_convert_keycode_to_pos(keys_history[i],&pos);							
 				razer_set_key_pos(chroma->keys,&pos,&col);
 			}
-		
+	
+
 		razer_update_keys(chroma,chroma->keys);
 		count+=count_dir;
-		if(count<=0 || count>50){
+		if(count<=0 || count>255){
 			count_dir=-count_dir;
 		}
 		razer_update(chroma);
