@@ -28,6 +28,9 @@ void effect(struct razer_chroma *chroma)
 	struct razer_pos pos4;
 	struct razer_pos pos5;
 	struct razer_pos pos6;
+	struct razer_pos pos7;
+	struct razer_pos pos8;
+	struct razer_pos pos9;
 	struct razer_pos logopos;
 	int r,g,b,c;
 	int ymod = 1;
@@ -36,13 +39,17 @@ void effect(struct razer_chroma *chroma)
 	pos.y = 3;
 	logopos.x = 20;
 	logopos.y = 0;
-	
+	int cmod = 20;
+
 	pos1 = pos;
 	pos2 = pos1;
 	pos3 = pos2;
 	pos4 = pos3;
 	pos5 = pos4;
 	pos6 = pos5;
+	pos7 = pos6;
+	pos8 = pos7;
+	pos9 = pos8;
 
 
 	while(1)
@@ -50,6 +57,10 @@ void effect(struct razer_chroma *chroma)
 		pos.x += xmod;
 		pos.y += ymod;
 
+
+		pos9 = pos8;
+		pos8 = pos7;
+		pos7 = pos6;
 		pos6 = pos5;
 		pos5 = pos4;
 		pos4 = pos3;
@@ -71,25 +82,25 @@ void effect(struct razer_chroma *chroma)
 			razer_set_key_pos(chroma->keys,&pos,&col);
 			
 
-			col.b += 10;
+			col.b += cmod;
 			razer_set_key_pos(chroma->keys,&pos1,&col);
-
-			col.b += 10;
+			col.b += cmod;
 			razer_set_key_pos(chroma->keys,&pos2,&col);
-
-			col.b += 10;
+			col.b += cmod;
 			razer_set_key_pos(chroma->keys,&pos3,&col);
-
-			col.b += 10;
+			col.b += cmod;
 			razer_set_key_pos(chroma->keys,&pos4,&col);
-
-			col.b += 10;
+			col.b += cmod;
 			razer_set_key_pos(chroma->keys,&pos5,&col);
-
-			col.b += 10;
+			col.b += cmod;
 			razer_set_key_pos(chroma->keys,&pos6,&col);
-
-			col.b -= 60;
+			col.b += cmod;
+			razer_set_key_pos(chroma->keys,&pos7,&col);
+			col.b += cmod;
+			razer_set_key_pos(chroma->keys,&pos8,&col);
+			col.b += cmod;
+			razer_set_key_pos(chroma->keys,&pos9,&col);
+			col.b -= 9*cmod;
 		}
 
 		razer_set_key_pos(chroma->keys,&logopos,&col);
