@@ -42,7 +42,7 @@ void effect(struct razer_chroma *chroma)
 {
 	int r = 128, g = 0, b = 0;
 	int count = 1;
-	int count_dir =1;
+	int count_dir = 1;
 	int x,y;
 	int span = 20;
 	double c = 0;
@@ -89,6 +89,9 @@ void effect(struct razer_chroma *chroma)
 		razer_set_key_pos(chroma->keys,&pos,&green);
 		pos.x += 1;
 		razer_set_key_pos(chroma->keys,&pos,&green);
+		pos.y -= 1;
+		razer_set_key_pos(chroma->keys,&pos,&green);
+		pos.y += 1; 
 		pos.x += 1;
 		razer_set_key_pos(chroma->keys,&pos,&green);
 		
