@@ -68,140 +68,35 @@ void draw_num(struct razer_chroma *chroma, int num){
 	pos13.x += 1;
 
 
+	if(num == 0 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos0,&col);
+	if(num == 0 || num == 2 || num == 3 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)		
+		razer_set_key_pos(chroma->keys,&pos1,&col);
+	if(num == 0 || num == 1 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos2,&col);
+	if(num == 0 || num == 1 || num == 2 || num == 3 || num == 4 || num == 7 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos3,&col);
+	if(num == 0 || num == 1 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos4,&col);
+	if(num == 0 || num == 1 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos5,&col);
+	if(num == 0 || num == 1 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos6,&col);
+	if(num == 0 || num == 2 || num == 3 || num == 5 || num == 6 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos7,&col);
+	if(num == 0 || num == 2 || num == 3  || num == 5 || num == 6 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos8,&col);
+	if(num == 0 || num == 2 || num == 6 || num == 8)
+		razer_set_key_pos(chroma->keys,&pos9,&col);
+	if(num == 0 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos10,&col);
+	if(num == 0 || num == 4 || num == 5 || num == 6 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos11,&col);
+	if(num == 0 || num == 2 || num == 3 || num == 4 || num == 5 || num == 6 || num == 7 || num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos12,&col);
+	if(num == 2 || num == 3 || num == 4 || num == 5 || num == 6 ||  num == 8 || num == 9)
+		razer_set_key_pos(chroma->keys,&pos13,&col);
 
-
-
-	if(num == 0){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos7,&col);
-		razer_set_key_pos(chroma->keys,&pos8,&col);
-		razer_set_key_pos(chroma->keys,&pos9,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos11,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-	}
-	if(num == 1){
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-	}
-	if(num == 2){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos7,&col);
-		razer_set_key_pos(chroma->keys,&pos8,&col);
-		razer_set_key_pos(chroma->keys,&pos9,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-		razer_set_key_pos(chroma->keys,&pos13,&col);
-	}
-	if(num == 3){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos7,&col);
-		razer_set_key_pos(chroma->keys,&pos8,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-		razer_set_key_pos(chroma->keys,&pos13,&col);
-	}
-	if(num == 4){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos11,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-		razer_set_key_pos(chroma->keys,&pos13,&col);
-	}
-	if(num == 5){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos7,&col);
-		razer_set_key_pos(chroma->keys,&pos8,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos11,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-		razer_set_key_pos(chroma->keys,&pos13,&col);
-	}
-	if(num == 6){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos7,&col);
-		razer_set_key_pos(chroma->keys,&pos8,&col);
-		razer_set_key_pos(chroma->keys,&pos9,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos11,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-		razer_set_key_pos(chroma->keys,&pos13,&col);
-	}
-	if(num == 7){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-	}
-	if(num == 8){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos7,&col);
-		razer_set_key_pos(chroma->keys,&pos8,&col);
-		razer_set_key_pos(chroma->keys,&pos9,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos11,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-		razer_set_key_pos(chroma->keys,&pos13,&col);
-	}
-	if(num == 9){
-		razer_set_key_pos(chroma->keys,&pos0,&col);
-		razer_set_key_pos(chroma->keys,&pos1,&col);
-		razer_set_key_pos(chroma->keys,&pos2,&col);
-		razer_set_key_pos(chroma->keys,&pos3,&col);
-		razer_set_key_pos(chroma->keys,&pos4,&col);
-		razer_set_key_pos(chroma->keys,&pos5,&col);
-		razer_set_key_pos(chroma->keys,&pos6,&col);
-		razer_set_key_pos(chroma->keys,&pos7,&col);
-		razer_set_key_pos(chroma->keys,&pos10,&col);
-		razer_set_key_pos(chroma->keys,&pos11,&col);
-		razer_set_key_pos(chroma->keys,&pos12,&col);
-		razer_set_key_pos(chroma->keys,&pos13,&col);
-	} 
 }
 
 void effect(struct razer_chroma *chroma)
