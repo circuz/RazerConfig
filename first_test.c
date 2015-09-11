@@ -100,6 +100,13 @@ void effect(struct razer_chroma *chroma)
 				
 				razer_convert_keycode_to_pos(keys_history[i],&pos);							
 				razer_set_key_pos(chroma->keys,&pos,&col);
+				
+				if(pos.x == 17 && pos.y == 0){
+					for(int i=0;i<keys_max;i++){
+						keys_history[i] = -1;
+					}
+				}
+				
 			}
 	
 
@@ -144,7 +151,7 @@ int main(int argc,char *argv[])
 {
 	uid_t uid = getuid();
 	if(uid != 0)
-		printf("input example needs root to work correctly.\n");	
+		printf("This program needs root to work correctly.\n");	
 	struct razer_chroma *chroma = razer_open();
 	if(!chroma)
 		exit(1);
